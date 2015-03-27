@@ -14,7 +14,7 @@ class npsradius (
     fail("No RADIUS client name was supplied")
   }
 
-  file { "%TEMP%\\npsradius.xml":
+  file { "C:\Windows\Temp\\puppet-npsradius\\npsradius.xml":
     ensure   => present,
     content  => template("npsradius/npsradius.xml.erb"),
   }
