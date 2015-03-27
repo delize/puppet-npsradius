@@ -16,7 +16,7 @@ class npsradius (
 
   file { "%TEMP%\\npsradius.xml":
     ensure   => present,
-    contents => template("npsradius/npsradius.xml.erb"),
+    content  => template("npsradius/npsradius.xml.erb"),
   }
 
 }
