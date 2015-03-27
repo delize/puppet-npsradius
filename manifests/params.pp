@@ -3,7 +3,7 @@ class npsradius::params {
   case $::osfamily {
     'windows': {
       $policyname          = "Puppet Controlled Policy"
-      $allowedgroupsid     = undef
+      $allowedgroups       = undef
       $clientname          = undef
       $clientip            = undef
       $clientsecret        = undef

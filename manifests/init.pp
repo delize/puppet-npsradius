@@ -1,13 +1,13 @@
 class npsradius (
   $policyname       = $npsradius::params::policyname,
-  $allowedgroupsid  = $npsradius::params::allowedgroupsid,
+  $allowedgroups    = $npsradius::params::allowedgroups,
   $clientname       = $npsradius::params::clientname,
   $clientip         = $npsradius::params::clientip,
   $clientsecret     = $npsradius::params::clientsecret,
 ) inherits npsradius::params {
 
-  if !$allowedgroupsid {
-    fail("No allowed group SID was supplied")
+  if !$allowedgroups {
+    fail("No allowed groups were specified")
   }
 
   if !$clientname {
