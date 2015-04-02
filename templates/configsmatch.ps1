@@ -34,7 +34,7 @@ $res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<
 
 Write-Host "Result = $res";
 
-if (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>")
+if ($res -eq $true)
 {
   Write-Host "Configurations match, no changes required";
   exit 0;
