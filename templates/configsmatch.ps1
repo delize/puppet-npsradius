@@ -30,6 +30,10 @@ ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
 Write-Host "Returned from Exporting config";
 
+$res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>");
+
+Write-Host "Result = $res";
+
 if (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>")
 {
   Write-Host "Configurations match, no changes required";
