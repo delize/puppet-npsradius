@@ -26,6 +26,8 @@ function FilesMatch
 
 ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
+Write-Host "Returned from Exporting config";
+
 if (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>")
 {
   Write-Host "Configurations match, no changes required";
@@ -33,6 +35,6 @@ if (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= s
 }
 else
 {
-  Write-Host "Configurations do not match, update required"
+  Write-Host "Configurations do not match, update required";
   exit 1;
 }
