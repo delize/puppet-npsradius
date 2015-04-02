@@ -21,7 +21,9 @@ function FilesMatch
     [string] $compFile
   )
 
-  return ((Get-FileHash -Path $refFile -Algorithm MD5) -eq (Get-FileHash -Path $compFile -Algorithm MD5));
+  $returnval =  ((Get-FileHash -Path $refFile -Algorithm MD5) -eq (Get-FileHash -Path $compFile -Algorithm MD5));
+  Write-Host "Return value: $returnval";
+  return $returnval;
 }
 
 ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
