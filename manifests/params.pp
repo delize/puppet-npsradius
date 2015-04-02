@@ -6,7 +6,8 @@ class npsradius::params {
       $allowedgroups  = undef
       $clients        = undef
       $configtemplate = 'npsradius/npsradius.xml.erb'
-      $tempfile       = 'C:/Windows/Temp/npsradius.xml'
+      $configfile     = 'C:/Windows/Temp/npsradiuspuppet.xml'
+      $exportfile     = 'C:/Windows/Temp/npsradiusexport.xml'
     }
 
     default: {

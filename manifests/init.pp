@@ -3,7 +3,8 @@ class npsradius (
   $allowedgroups  = $npsradius::params::allowedgroups,
   $clients        = $npsradius::params::clients,
   $configtemplate = $npsradius::params::configtemplate,
-  $tempfile       = $npsradius::params::tempfile,
+  $configfile     = $npsradius::params::configfile,
+  $exportfile     = $npsradius::params::exportfile,
 ) inherits npsradius::params {
 
   if !$allowedgroups {

@@ -1,17 +1,19 @@
 class npsradius::config (
-  $tempfile       = $npsradius::tempfile,
+  $configfile     = $npsradius::configfile,
+  $exportfile     = $npsradius::exportfile,
   $configtemplate = $npsradius::configtemplate,
 ) {
 
-  file { $tempfile:
+  file { $configfile:
     ensure  => present,
     content => template($configtemplate),
   }
 
   exec { 'checkandsetconfig':
     command  => template('npsradius/setconfig.ps1'),
-    unless   => template('npsradius/checkconfig.ps1'),
+    unless   => template('npsradius/configsmatch.ps1'),
     provider => powershell,
+    require  => File[$configfile],
   }
 
 }
