@@ -15,6 +15,6 @@ class npsradius (
     fail('No RADIUS clients were supplied')
   }
 
-  class { 'npsradius::config'}
+  class { 'npsradius::config': }
 
 }
