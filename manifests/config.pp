@@ -10,10 +10,11 @@ class npsradius::config (
   }
 
   exec { 'checkandsetconfig':
-    command  => template('npsradius/setconfig.ps1'),
-    unless   => template('npsradius/configsmatch.ps1'),
-    provider => powershell,
-    require  => File[$configfile],
+    command   => template('npsradius/setconfig.ps1'),
+    unless    => template('npsradius/configsmatch.ps1'),
+    provider  => powershell,
+    require   => File[$configfile],
+    logoutput => true,
   }
 
 }
