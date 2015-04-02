@@ -8,8 +8,8 @@ class npsradius::config (
     content => template($configtemplate),
   }
 
-  exec { 'checkandsetpolicybyname':
-    command  => template('npsradius/correctconfig.ps1'),
+  exec { 'checkandsetconfig':
+    command  => template('npsradius/setconfig.ps1'),
     unless   => template('npsradius/checkconfig.ps1'),
     provider => powershell,
   }
