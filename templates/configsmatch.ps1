@@ -1,3 +1,6 @@
+$ErrorActionPreference = "Stop";
+
+Set-StrictMode -Version Latest;
 
 function ExportNPSConfig
 {
@@ -5,7 +8,7 @@ function ExportNPSConfig
   (
     [string] $path
   )
-
+  Write-Host "Exporting config to $path";
   Export-NpsConfiguration -Path $path;
 }
 
