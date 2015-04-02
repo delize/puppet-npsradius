@@ -34,6 +34,7 @@ $res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<
 
 Write-Host "Result = $res";
 
+try{
 if ($res -eq $true)
 {
   Write-Host "Configurations match, no changes required";
@@ -43,4 +44,9 @@ else
 {
   Write-Host "Configurations do not match, update required";
   exit 1;
+}
+}
+catch [System.Exception]
+{
+  Write-Host "Exception occured: $_";
 }
