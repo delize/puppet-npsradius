@@ -4,10 +4,9 @@ class npsradius::params {
     'windows': {
       $policyname     = 'Puppet Controlled Policy'
       $allowedgroups  = undef
-      $clientname     = undef
-      $clientip       = undef
-      $clientsecret   = undef
+      $clients        = undef
       $configtemplate = 'npsradius/npsradius.xml.erb'
+      $tempfile       = 'C:/Windows/Temp/npsradius.xml'
     }
 
     default: {

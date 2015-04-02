@@ -2,7 +2,8 @@ class npsradius (
   $policyname     = $npsradius::params::policyname,
   $allowedgroups  = $npsradius::params::allowedgroups,
   $clients        = $npsradius::params::clients,
-$233  99configtemplate => $npsradius::params::configtemplate,
+  $configtemplate = $npsradius::params::configtemplate,
+  $tempfile       = $npsradius::params::tempfile,
 ) inherits npsradius::params {
 
   if !$allowedgroups {
@@ -13,9 +14,6 @@ $233  99configtemplate => $npsradius::params::configtemplate,
     fail('No RADIUS clients were supplied')
   }
 
-  file { 'C:/Windows/Temp/npsradius.xml':
-    ensure  => present,
-    content => template($configtemplate),
-  }
+  class { 'npsradius::config'}
 
 }
