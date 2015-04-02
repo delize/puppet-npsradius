@@ -24,9 +24,9 @@ function FilesMatch
   return ((Get-FileHash -Path $refFile -Algorithm MD5) -eq (Get-FileHash -Path $compFile -Algorithm MD5));
 }
 
-ExportNPSConfig -path "<% scope['npsradius::exportfile'] %>";
+ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
-if (FilesMatch -refFile "<% scope['npsradius::configfile'] %>" -compFile "<% scope['npsradius::exportfile'] %>")
+if (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>")
 {
   exit 0;
 }
