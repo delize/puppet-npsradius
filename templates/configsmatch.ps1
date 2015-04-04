@@ -21,7 +21,7 @@ function FilesMatch
     [string] $compFile
   )
 
-  $returnval =  ((Get-FileHash -Path $refFile -Algorithm MD5) -eq (Get-FileHash -Path $compFile -Algorithm MD5));
+  $returnval =  ((Get-FileHash -Path $refFile -Algorithm MD5).Hash -eq (Get-FileHash -Path $compFile -Algorithm MD5).Hash);
   Write-Host "Return value: $returnval";
   return $returnval;
 }
