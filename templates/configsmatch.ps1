@@ -26,8 +26,7 @@ function FilesMatch
   return $returnval;
 }
 
-try
-{
+
 ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
 Write-Host "Returned from Exporting config";
@@ -50,15 +49,8 @@ Write-Host "After result";
     Write-Host "Configurations do not match, update required";
     exit 1;
   }
-}
-catch
-{
-    Write-Host "Exception occured: $_";
-    exit 0;
-}
-finally
-{
+
+
+
   Write-Host "finally block reached";
   exit 0;
-
-}
