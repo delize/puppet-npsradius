@@ -26,6 +26,8 @@ function FilesMatch
   return $returnval;
 }
 
+try
+{
 ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
 Write-Host "Returned from Exporting config";
@@ -37,8 +39,7 @@ Write-Host "Result = $res";
 
 Write-Host "After result";
 
-try
-{
+
   if ($res)
   {
     Write-Host "Configurations match, no changes required";
