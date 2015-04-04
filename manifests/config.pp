@@ -9,7 +9,7 @@ class npsradius::config (
     content => template($configtemplate),
   }
 
-  exec { 'checkandsetconfig':
+  exec { 'npsradius-checkandconfig':
     command   => template('npsradius/setconfig.ps1'),
     unless    => template('npsradius/configsmatch.ps1'),
     provider  => powershell,
