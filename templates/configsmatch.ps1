@@ -35,6 +35,8 @@ $res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<
 
 Write-Host "Result = $res";
 
+Write-Host "After result";
+
 try
 {
   if ($res)
