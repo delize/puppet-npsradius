@@ -1,1 +1,2 @@
-Write-Host "Set config will be run";
+
+Import-NpsConfiguration -Path "<%= scope['npsradius::configfile'] %>";

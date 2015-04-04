@@ -1,7 +1,3 @@
-#$ErrorActionPreference = "Stop";
-
-#Set-StrictMode -Version Latest;
-
 function ExportNPSConfig
 {
   Param
