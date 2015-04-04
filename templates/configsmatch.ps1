@@ -48,8 +48,14 @@ try
     exit 1;
   }
 }
-  catch [System.Exception]
-  {
+catch
+{
     Write-Host "Exception occured: $_";
-  }
+    exit 0;
+}
+finally
+{
+  Write-Host "finally block reached";
+  exit 0;
+
 }
