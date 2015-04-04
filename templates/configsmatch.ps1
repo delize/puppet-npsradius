@@ -30,23 +30,26 @@ ExportNPSConfig -path "<%= scope['npsradius::exportfile'] %>";
 
 Write-Host "Returned from Exporting config";
 
+Write-Host "Testing <%= scope['npsradius::configfile'] %> against <%= scope['npsradius::exportfile'] %>"
 $res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>");
 
 Write-Host "Result = $res";
 
-try{
-if ($res)
+try
 {
-  Write-Host "Configurations match, no changes required";
-  exit 0;
+  if ($res)
+  {
+    Write-Host "Configurations match, no changes required";
+    exit 0;
+  }
+  else
+  {
+    Write-Host "Configurations do not match, update required";
+    exit 1;
+  }
 }
-else
-{
-  Write-Host "Configurations do not match, update required";
-  exit 1;
-}
-}
-catch [System.Exception]
-{
-  Write-Host "Exception occured: $_";
+  catch [System.Exception]
+  {
+    Write-Host "Exception occured: $_";
+  }
 }
