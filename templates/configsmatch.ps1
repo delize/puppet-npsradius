@@ -33,13 +33,4 @@ Write-Host "Testing <%= scope['npsradius::configfile'] %> against <%= scope['nps
 $res = (FilesMatch -refFile "<%= scope['npsradius::configfile'] %>" -compFile "<%= scope['npsradius::exportfile'] %>");
 
 
-if ($res)
-{
-  Write-Host "Configurations match, no changes required";
-  exit 0;
-}
-else
-{
-  Write-Host "Configurations do not match, update required";
-  exit 1;
-}
+if ($res) { exit 0; } else { exit 1; }
