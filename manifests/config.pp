@@ -7,6 +7,8 @@ class npsradius::config (
   file { $configfile:
     ensure  => present,
     content => template($configtemplate),
+    owner   => admin
+    group   => Administrators
   }
 
   exec { 'npsradius-checkandconfig':
